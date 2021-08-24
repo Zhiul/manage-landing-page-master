@@ -1,0 +1,315 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+
+header, .header{
+    
+    @include breakpoint-up(large){
+        margin-bottom: 101px;
+    }
+
+    &-menu{
+        position: absolute;
+        z-index: 2;
+        background-color: white;
+        padding: 1.625rem;
+        width: 86.6vw;
+        margin: 0 auto;
+        left: 50%;
+        transform: translatex(-50%);
+        border-radius: 4px;
+
+        @media(min-width: 641px){
+            transform: translate(-50%, -28px);
+        }
+
+        a{
+            display: block;
+            text-align: center;
+            color: $DarkBlue;
+            padding: 0.625rem;
+            font-size: 1.08rem;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    }
+
+    &.open{
+
+        .overlay{
+            display: block;
+        }
+
+        .burger{
+            > span:first-child{
+                transform: rotate(45deg);
+                transform-origin: 3px 3px;
+            }
+
+            > span:nth-child(2){
+                opacity: 0;
+            }
+
+            > span:last-child{
+                transform: rotate(-45deg);
+                transform-origin: 2px 3px;
+            }
+        }
+    }
+
+    &-logo{
+
+        @include breakpoint-down(medium){
+        width: 6.8125rem;
+        }
+
+        transform: translateY(1px);
+    }
+
+    .hero{
+        display: flex;
+        flex-direction: column;
+        max-width: 69.25rem;
+
+        @include breakpoint-up(large){
+            flex-direction: row;
+            margin: 0 auto;
+        }
+
+        h1{
+            font-size: 2.5rem;
+            color: $DarkBlue;
+            line-height: 1.25;
+            margin-bottom: -0.375rem;
+            max-width: 27.5rem;
+        
+            @include breakpoint-up(large){
+                line-height: 1.12;
+                font-size: 3.38rem;
+                text-align: left;
+                margin-bottom: 2.1875rem;
+            }
+
+            @include breakpoint-down(medium){
+                margin: 0 auto;
+            }
+        }
+        
+        
+        
+            p{
+                @include breakpoint-up(large){
+                    font-size: 1.03rem;
+                    margin-bottom: 2.625rem;
+                    text-align: left;
+                    max-width: 35ch;
+                }
+
+                @include breakpoint-down(medium){
+                margin: 1rem auto 2rem auto;
+                max-width: 29.25rem;
+                }
+            }
+
+            button{
+                margin: 0 auto;
+
+                @include breakpoint-up(large){
+                    margin: unset;
+                }
+            }
+    }
+
+    .sites{
+
+        transform: translateY(-6px);
+
+        a{
+            font-size: 0.8rem;
+            color: $DarkBlue;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 100ms ease-in-out;
+            
+            &:not(:last-child){
+                margin-right: 29.3px;
+            }
+
+            &:hover{
+                color: $DarkGrayishBlue;
+            }
+        }
+
+    }
+
+    .wrapper-img{
+        position: relative;
+        padding-bottom: 111%;
+        height: 0px;
+        margin-top: 0.25rem;
+        pointer-events: none;
+
+        @media (min-width:614px){
+            margin-bottom: -40vw;
+        }
+
+        @media (min-width:852px){
+            margin-bottom: -58vw;
+        }
+
+        @include breakpoint-up(large){
+            flex: 1;
+            order: 2;
+        }
+    }
+
+    .section-text{
+        @include breakpoint-up(large){
+            flex: 1;
+            max-width: 440px;
+        }
+    }
+
+    &-img{
+        position: absolute;
+        width: 105%;
+        height: auto;
+        transform: translatex(-10px);
+
+        @media (min-width: 612px){
+            transform: translatex(21%);
+            max-width: 460px;
+        }
+
+        @media (min-width: 812px){
+            transform: translateX(41%);
+        }
+
+        @include breakpoint-up(large){
+            max-width: 580px;
+            transform: translate(-0.35vw, 11px);
+        }
+
+        @media (min-width: 1212px){
+            transform: translate(7.65vw, 11px);
+        }
+    }
+
+    &-img-b, &-img-b-2{
+        content: "";
+        position: absolute;
+        width: 110%;
+        height: 110%;
+        background-image: url(/images/bg-tablet-pattern.svg);
+        background-repeat: no-repeat;
+        background-size: 114%;
+        z-index: -1;
+        background-position: -99% 293%;
+        transform: translate(-2%, -32%);
+
+        @media (min-width: 612px){
+            background-size: cover;
+            background-position: -99% 0vw;
+            transform: translate(40vw, -32%);
+            max-height: 683px;
+            max-width: 638px;
+        }
+
+        @include breakpoint-up(large){
+            transform: translate(9vw, -19vw);
+            background-size: 100%;
+            max-height: 739px;
+            max-width: 739px;
+        }
+
+        @include breakpoint-up(xlarge){
+            transform: translate(12vw, -19vw);
+        }
+        }
+
+        
+    &-img-b-2{
+            width: 100%;
+            height: 100%;
+            background-size: 82%;
+            background-position: 65% 28%;
+            transform: translate(47%, -79vw);
+            max-width: 400px;
+
+        @media (min-width:550px){
+            transform: translate(67%, -51%);
+        }
+
+        @media (min-width:615px){
+        display: none;
+        }
+
+        @include breakpoint-up(large){
+            transform: translate(-77%, 21vw);
+            max-height: 1200px;
+            max-width: 1200px;
+            background-size: 72%;
+            background-position: 66% 50%;
+            display: block;
+            width: 84%;
+            height: 181%;
+        }
+    }
+    }
+
+
+
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 2.6875rem;
+        align-items: center;
+        max-width: 69.31rem;
+
+        @include breakpoint-up(large){
+            margin: auto auto 7.9375rem auto;
+        }
+
+        button{
+            margin: 0px;
+        }
+
+        .burger{
+            width: 25px;
+            height: 18px;
+            cursor: pointer;
+            }
+    
+            span{
+                width: 25px;
+                height: 4px;
+                background-color: black;
+                display: block;
+                transition: all 300ms ease-in-out;
+    
+                &:not(:last-child){
+                    margin-bottom: 0.1875rem;
+                }
+            }
+        }
+
+    .overlay{
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-color: $DarkBlue;
+        background: linear-gradient(transparent, $DarkBlue);
+        z-index: 1;
+
+        &.fade-in{
+            display: block;
+        }
+    }
+
+

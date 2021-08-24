@@ -1,0 +1,229 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+footer{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &:before{
+        content: '';
+        position: absolute;
+        background: url('/images/bg-simplify-section-mobile.svg');
+        background-size: cover;
+        width: 5.875rem;
+        height: 19.125rem;
+        transform: translateY(3.25rem);
+    }
+
+    .logo{
+        margin-bottom: 2.125rem;
+        grid-area: logo;
+    }
+}
+
+.cta, .footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta{
+    background-color: $BrightRed;
+    font-size: 1.5968rem;
+    color: $VeryLightGray;
+    padding: 54px 35px 0px 35px;
+    text-align: center;
+
+    @include breakpoint-up(large){
+        display: flex;
+        flex-direction: row;
+        padding: 56px 11.18vw 61px 11.53vw;
+        justify-content: space-between;
+        align-items: baseline;
+
+        .title{
+            margin: 0px;
+            text-align: left;
+            width: 34ch;
+
+            h2{
+                margin: 0px;
+            }
+        }
+    }
+    
+    button{
+        background-color: $VeryLightGray;
+        color: $BrightRed;
+        font-weight: 500;
+        margin-bottom: 91px;
+        transition: 100ms ease-in-out;
+
+        &:hover{
+            color: rgb(251, 203, 193);
+        }
+
+        @include breakpoint-up(large){
+            margin: 0px;
+        }
+    }
+
+
+}
+
+.footer{
+    display: flex;
+    background-color: $VeryDarkBlue;
+    justify-items: center;
+    padding: 50px 0px 14px 0px;
+
+    @include breakpoint-up(large){
+        display: grid;
+        grid-template-columns: 148px 29.3vw 334px;
+        grid-template-rows: 6.3125rem 5.0625rem;
+        justify-items: flex-start;
+        justify-content: space-between;
+        padding: 89px 5.4vw 26px 5.8vw;
+
+        grid-template-areas:
+        "logo sites form"
+        "social-media sites copy"
+    }
+
+    @media (min-width: 1280px){
+        padding: 89px 11.4vw 26px 11.8vw;
+    }
+
+    .form{
+        grid-area: form;
+        width: 20.6875rem;
+        margin-bottom: 2rem;
+    }
+
+    #email{
+        background-color: white;
+        font-family: 'Be Vietnam';
+        font-size: 0.801rem;
+        padding: 8px 57px 10px 24px;
+        border-radius: 80px;
+        display: inline-block;
+        border: 1px solid transparent;
+        outline: none;
+    }
+
+    .submit{
+        padding: 12px 30px 13px 30px;
+        display: inline-block;
+    }
+
+    .sites-wrapper{
+        grid-area: sites;
+        display: flex;
+        margin-bottom: 2.0625rem;
+        width: 92%;
+        justify-content: space-around;
+
+        @include breakpoint-up(large){
+        justify-content: space-between;   
+        }
+    }
+
+    .sites{
+        padding: 0px;
+
+        a{
+            font-size: 0.91rem;
+            color: $VeryLightGray;
+            text-decoration: none;
+            line-height: 2.35;
+            display: block;
+            transition: 100ms ease-in-out;
+
+            &:hover{
+                color: $BrightRed;
+            }
+        }
+    }
+
+    .social-media{
+        grid-area: social-media;
+        margin: 0 auto 3.5rem auto;
+
+        @include breakpoint-up(large){
+            margin: 0px;
+            padding: 0px;
+        }
+
+        svg{
+            transform: scale(1.6);
+            margin-right: 40px;
+            cursor: pointer;
+
+            &:hover{
+            path{
+                transition: 100ms ease-in-out;
+                fill: $BrightRed;
+            }
+            }
+
+
+
+            @include breakpoint-up(large){
+                transform: scale(0.8);
+                margin-right: 6px;
+            }
+        }
+
+
+    }
+
+    h4{
+        grid-area: copy;
+        font-size: 0.768rem;
+        color: $DarkGrayishBlue;
+
+        @include breakpoint-up(large){
+        justify-self: flex-end
+        }
+
+    }
+
+    .subscribe-form {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+
+        &__input-group {
+        position: relative;
+        display: flex;
+        margin-right: .8rem;
+        width: 100%;
+        
+        p.error {
+            position: absolute;
+            color: red;
+            font-size: 0.6rem;
+            bottom: -1.9rem;
+            left: 1rem;
+            opacity: 1;
+            transition: $transition opacity, $transition bottom;
+            pointer-events: none;
+        }
+        p.error.hide {
+            bottom: 0;
+            opacity: 0;
+        }
+        }
+
+        #email.error {
+        border-color: red;
+        color: red;
+        }
+
+        .sr-only{
+            display: none;
+        }
+}
+}

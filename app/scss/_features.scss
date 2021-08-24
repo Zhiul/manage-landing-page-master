@@ -1,0 +1,106 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@use 'mixins' as *;
+
+.features{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 69.25rem;
+    margin: 0 auto 1.3125rem auto;
+
+    @include breakpoint-up(large){
+    margin: 0 auto 7.5rem auto;
+    flex-direction: row;
+    }
+
+    &-description{
+    max-width: 29.25rem;
+
+    @include breakpoint-down(medium){
+        margin: 0 auto;
+    }
+    }
+
+    .features-items{
+        p{
+        @include breakpoint-up(large){
+            max-width: 45.5ch;
+            transform: translateX(4px);
+
+            &:not(:last-child){
+            margin-bottom: 1.8125rem;
+            }
+        }
+
+        @media (min-width: 1240px){
+        transform: translateX(80px);
+        }
+
+        }
+    }
+
+    p{
+        font-size: 0.863rem;
+        line-height: 2.05;
+        margin: 0 auto 2.4375rem auto;
+        text-align: left;
+
+        @include breakpoint-up(large){
+            font-size: 1rem;
+            max-width: 37ch;
+            margin: unset;
+            line-height: 1.7;
+        }
+    }
+
+    h2{
+        font-size: 1.797rem;
+        color: $DarkBlue;
+        margin: 0 auto 0.875rem auto;
+        width: 90%;
+
+        @include breakpoint-up(large){
+            font-size: 2.410625rem;
+            max-width: 20ch;
+            text-align: left;  
+            margin: unset;
+            line-height: 1.1;
+            margin-bottom: 1.9375rem;
+        }
+    }
+
+    h3{
+        font-size: 0.9675rem;
+        color: $DarkBlue;
+        margin-bottom: 1.14375rem;
+        display: inline-block;
+    }
+
+    span{
+        padding: 8px 23px 9px 24px;
+        background-color: $BrightRed;
+        color: white;
+        margin-right: 0.875rem;
+        border-radius: 80px;
+        position: relative;
+
+        @include breakpoint-down(medium){
+            &:before{
+                content: "";
+                height: 39px;
+                background-color: $VeryPaleRed;
+                color: white;
+                margin-right: 0.875rem;
+                border-radius: 80px;
+                position: absolute;
+                width: 2000%;
+                z-index: -1;
+                bottom: 0px;
+                overflow-x: hidden;
+            }
+        }
+    }
+}

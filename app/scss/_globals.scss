@@ -1,0 +1,71 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+html, body{
+    overflow-x: hidden;
+}
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+
+    &.noscroll{
+        overflow: hidden;
+    }
+}
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.hide-for-desktop{
+    @include breakpoint-up(large){
+    display: none;
+    }
+}
+
+.hide-for-mobile{
+    @include breakpoint-down(medium){
+    display: none;
+    }
+}
+
+button, .button{
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: 0.811rem;
+    padding: 12px 33px 13px 33px;
+    border-radius: 100px;
+    background-color: $BrightRed;
+    color: white;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+}
+
+button:hover, .button:hover{
+    background-color: rgb(253, 141, 119);
+}
+
+header, .features{
+    padding: 2.5625rem 1.5rem 0px 1.5rem;
+    margin-bottom: 3.375rem;
+
+    h1, h2, h3, p{
+        text-align: center;
+    }
+    
+    p{
+        color: $DarkGrayishBlue;
+        line-height: 1.44;
+        margin-bottom: 2rem;
+    }
+}
